@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import HomeComponent from "./components/HomeComponent";
+import SteveJobsComponent from "./components/SteveJobsComponent";
+import BillGateComponent from "./components/BillGateComponent";
+import JeffBezosComponent from "./components/JeffBezosComponent";
+import ZuckerbergComponent from "./components/ZuckerbergComponent";
+import MuskComponent from "./components/MuskComponent";
+import PersonajesComponent from "./components/PersonajesComponent";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/home" element={<HomeComponent />} />
+        <Route index element={<HomeComponent />} />
+        <Route path="/personajes" element={<PersonajesComponent />} />
+        <Route path="/jobs" element={<SteveJobsComponent />} />
+        <Route path="/gates" element={<BillGateComponent />} />
+        <Route path="/bezos" element={<JeffBezosComponent />} />
+        <Route path="/zuckerberg" element={<ZuckerbergComponent />} />
+        <Route path="/musk" element={<MuskComponent />} />
+      </Routes>
+    </Router>
   );
 }
 
